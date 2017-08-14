@@ -1,1 +1,1 @@
-# HPC IaaS (Infrastructure-as-a-Service) #
+# HPC IaaS (Infrastructure-as-a-Service) Lab #
