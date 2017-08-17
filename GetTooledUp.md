@@ -1,18 +1,22 @@
 # Get Tooled Up for Azure Big Compute #
 
-Before you begin the labs, we recommend that you take a few minutes to download and install some relevant Azure client side tools that will make working with Azure a lot faster and easier (and more fun)! These utilities can either be installed on your laptop, or you can provision a  linux or windows VM in Azure, and install them there. 
+Before you begin to work with Azure Big Compute & HPC, we recommend that you take a few minutes to download and install some relevant Azure client side tools that will make working with Azure a lot faster and easier (and more fun)! These utilities can either be installed on your laptop, or you can provision a  linux or windows VM in Azure, and install them there. 
 
 A good option for Linux folks is to install the Linux tools into the Ubuntu Bash shell on Windows 10. There is a quick HOWTO on this online <a href="https://www.windowscentral.com/how-install-bash-shell-command-line-windows-10">here</a>.
 
-## Brown Belt Tools: 
+## Universal & Essential Tools: 
 1) Azure CLI - Command Line Interface to manage your Azure datacenter. 
 2) Storage Explorer - Utility to help you interact with Azure storage objects such as files & object storage. 
 3) azcopy - utility for copying large datasets in and out of Azure efficiently. 
 
-## Black Belt Tools: 
+## Azure Batch Tools:
 1) Azure Batch Shipyard
 2) Azure Batch CLI Extensions
-3) Github & ARM Templates
+3) Azure Batch Explorer
+
+## Automation & Development Tools
+1) Github & ARM Templates
+2) Visual Studio Code & Visual Studio
 
 ***
 ## Azure CLI 2.0 
