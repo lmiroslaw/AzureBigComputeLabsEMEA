@@ -1,4 +1,4 @@
-# Get Tooled Up for the Azure Big Compute Labs #
+# Get Tooled Up for Azure Big Compute #
 
 Before you begin the labs, we recommend that you take a few minutes to download and install some relevant Azure client side tools that will make working with Azure a lot faster and easier. These utilities can either be installed on your laptop, or you can provision a  linux or windows VM in Azure, and install them there. 
 
