@@ -1,4 +1,4 @@
-# Get Tooled Up for Azure Big Compute #
+# Step 1: Get Tooled Up for Azure Big Compute #
 
 Before you begin to work with Azure Big Compute & HPC, we recommend that you take a few minutes to download and install some relevant Azure client side tools that will make working with Azure a lot faster and easier (and more fun)! These utilities can either be installed on your laptop, or you can provision a  linux or windows VM in Azure, and install them there. 
 
