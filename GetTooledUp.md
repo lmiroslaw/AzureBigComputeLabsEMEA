@@ -1,6 +1,6 @@
 # Get Tooled Up for Azure Big Compute #
 
-Before you begin the labs, we recommend that you take a few minutes to download and install some relevant Azure client side tools that will make working with Azure a lot faster and easier. These utilities can either be installed on your laptop, or you can provision a  linux or windows VM in Azure, and install them there. 
+Before you begin the labs, we recommend that you take a few minutes to download and install some relevant Azure client side tools that will make working with Azure a lot faster and easier (and more fun)! These utilities can either be installed on your laptop, or you can provision a  linux or windows VM in Azure, and install them there. 
 
 A good option for Linux folks is to install the Linux tools into the Ubuntu Bash shell on Windows 10. There is a quick HOWTO on this online <a href="https://www.windowscentral.com/how-install-bash-shell-command-line-windows-10">here</a>.
 
@@ -12,6 +12,7 @@ A good option for Linux folks is to install the Linux tools into the Ubuntu Bash
 ## Black Belt Tools: 
 1) Azure Batch Shipyard
 2) Azure Batch CLI Extensions
+3) Github & ARM Templates
 
 ***
 ## Azure CLI 2.0 
