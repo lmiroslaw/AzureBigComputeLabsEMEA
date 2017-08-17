@@ -5,7 +5,7 @@ Before you begin to work with Azure Big Compute & HPC, we recommend that you tak
 Most of these tools are universal and run on Linux, Windows or MacOS. 
 
 A good option for Linux folks is to install the Linux tools into the Ubuntu Bash shell on Windows 10. There is a quick HOWTO on this online <a href="https://www.windowscentral.com/how-install-bash-shell-command-line-windows-10">here</a>.
-
+***
 ## Universal & Essential Tools: 
 
 ### Azure CLI - Command Line Interface to manage your Azure datacenter. 
@@ -27,14 +27,17 @@ Azcopy is a utility for copying and moving files around to and from Azure or bet
 
 ***
 
+## Universal Azure Automation & Development Tools
+1) Github & ARM Templates
+2) Visual Studio Code & Visual Studio
+
+***
 ## Azure Batch Tools:
 1) Azure Batch Shipyard
 2) Azure Batch CLI Extensions
 3) Azure Batch Explorer
 
-## Automation & Development Tools
-1) Github & ARM Templates
-2) Visual Studio Code & Visual Studio
+
 
 
 
