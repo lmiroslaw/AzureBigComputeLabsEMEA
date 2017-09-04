@@ -33,10 +33,10 @@ Azcopy is a utility for copying and moving files around to and from Azure or bet
 These days most of what you need for the common Azure Batch tasks is included in the Azure Batch CLI (see above) under the "az batch" sub-command. However, for the labs we will need some extra tools normally reserved for black belts: 
 
 1) Azure Batch Shipyard 
-Information and overview <a href="https://azure.github.io/batch-shipyard/">here</a>. Github repository <a href="https://github.com/Azure/batch-shipyard">. Clone the repository to your workstation and follow the install instructions linked on the main README. 
+Batch Shipyard is a set of client-side tools that makes running container based Big Compute jobs on Azure Batch a breeze. Information and overview <a href="https://azure.github.io/batch-shipyard">here</a>. Clone the <a href="https://github.com/Azure/batch-shipyard">github repository</a> to your workstation and follow the install instructions linked on the main README. 
 
 2) Azure Batch CLI Extensions (Preview)
-The <a href="https://github.com/Azure/azure-batch-cli-extensions">Batch CLI Exensions</a> provide a bunch of new advanced functionality for Azure Batch from the CLI including shipyard style templates, Task Factory, automated file upload/download and new package management features. 
+The <a href="https://github.com/Azure/azure-batch-cli-extensions">Batch CLI Exensions</a> provide a bunch of new advanced functionality for Azure Batch from the CLI including shipyard style templates, Task Factory, automated file upload/download and new package management features. After installing Azure Batch CLI, follow the instructions on the github README to install the extensions. 
 
 3) Batch Labs
 Link to executable will be provided by your instructor. However, if you want to have a go yourself - the source repo for Batch Labs is <a href="https://github.com/Azure/BatchLabs">here</a>.
@@ -45,4 +45,10 @@ Link to executable will be provided by your instructor. However, if you want to 
 
 ## Universal Azure Automation & Development Tools
 1) Github & ARM Templates
+
+In case you hadn't heard, infrastructure in the cloud is nothing but CODE. In Azure we call it ARM - Azure Resource Manager. 
+
+Get yourself a <a href="https://github.com/join">github account</a>. You'll find lots and lots of example templates including for HPC. Some examples:
+
+
 2) Visual Studio Code & Visual Studio
