@@ -4,7 +4,7 @@ Before you begin to work with Azure Big Compute & HPC, we recommend that you tak
 
 Most of these tools are universal and run on Linux, Windows or MacOS. 
 
-A good option for Linux folks is to install the Linux tools into the Ubuntu Bash shell on Windows 10. There is a quick HOWTO on this online <a href="https://www.windowscentral.com/how-install-bash-shell-command-line-windows-10">here</a>.
+A good option for Linux folks is to install the Linux tools into the Ubuntu Bash shell on Windows 10. There is a quick HOWTO on enabling bash for windows <a href="https://www.windowscentral.com/how-install-bash-shell-command-line-windows-10">here</a>.
 ***
 ## Universal & Essential Tools: 
 
@@ -12,7 +12,7 @@ A good option for Linux folks is to install the Linux tools into the Ubuntu Bash
 
 Azure CLI is THE tool to interact with Azure from the command line. You can use to create objects such as virtual machines, networks, scale-sets & clusters, storage, disks, and so on. Azure CLI download and instructions are available <a href="https://docs.microsoft.com/en-us/cli/azure/install-azure-cli">here.</a>
 
-Note that you can also use <a href="https://azure.microsoft.com/en-us/features/cloud-shell/">cloud shell</a> from the <a href="https://portal.azure.com"</a>. 
+Note that you can also use <a href="https://azure.microsoft.com/en-us/features/cloud-shell/">cloud shell</a> from the <a href="https://portal.azure.com">azure portal</a>.
 
 ### Storage Explorer - Utility to help you interact with Azure Storage & Your Data
 
