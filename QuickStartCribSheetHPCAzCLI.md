@@ -50,6 +50,10 @@ You can read the details about the different VM types in the Azure documentation
 Note: The supported locations are 'eastus, eastus2, westus, centralus, northcentralus, southcentralus, northeurope, westeurope, eastasia, southeastasia, japaneast, japanwest, australiaeast, australiasoutheast, brazilsouth, southindia, centralindia, westindia, canadacentral, canadaeast, westus2, westcentralus, uksouth, ukwest, koreacentral, koreasouth'.
 
 To obtain an exhaustive list of up-to-date hardware SKU's available at a given location, you can run this command: 
+```
+az vm list-sizes --location eastus
+```
+Or formatted ready for insertion into a .json template:
 ````
 az vm list-sizes --location eastus | tail -n +3 | awk '{printf("\"%s\",\n",$3)}'
 ````
