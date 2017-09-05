@@ -43,6 +43,16 @@ $ az vm image list --publisher OpenLogic --all | grep HPC
 CentOS-HPC  OpenLogic    6.5    OpenLogic:CentOS-HPC:6.5:6.5.20160408  6.5.20160408
 CentOS-HPC  OpenLogic    7.1    OpenLogic:CentOS-HPC:7.1:7.1.20160408  7.1.20160408
 ```
+# Decide which Hardware SKU you want to use
+
+You can read the details about the different VM types in the Azure documentation with details onthe underlying <a href="https://docs.microsoft.com/en-us/azure/virtual-machines/linux/sizes">hardware types</a> and <a href="https://azure.microsoft.com/en-us/pricing/details/virtual-machines/linux/">VM pricing per location</a>. 
+
+Note: The supported locations are 'eastus, eastus2, westus, centralus, northcentralus, southcentralus, northeurope, westeurope, eastasia, southeastasia, japaneast, japanwest, australiaeast, australiasoutheast, brazilsouth, southindia, centralindia, westindia, canadacentral, canadaeast, westus2, westcentralus, uksouth, ukwest, koreacentral, koreasouth'.
+
+To obtain an exhaustive list of up-to-date hardware SKU's available at a given location, you can run this command: 
+````
+az vm list-sizes --location eastus | tail -n +3 | awk '{printf("\"%s\",\n",$3)}'
+````
 
 ### Create a VM with the image you chose
 
