@@ -37,20 +37,24 @@ https://docs.microsoft.com/en-us/azure/virtual-machines/linux/cli-samples?toc=%2
 
 Find the HPC Image closest to your need
 =================================
-The -HPC images have the Microsoft RDMA drivers & Intel MPI built in. If there is no HPC image, you will have to add this part manually. 
+The -HPC images have the Microsoft RDMA drivers & Intel MPI built in. If there is no HPC image, you will have to add this part manually.
+```
 $ az vm image list --publisher OpenLogic --all | grep HPC
 CentOS-HPC  OpenLogic    6.5    OpenLogic:CentOS-HPC:6.5:6.5.20160408  6.5.20160408
 CentOS-HPC  OpenLogic    7.1    OpenLogic:CentOS-HPC:7.1:7.1.20160408  7.1.20160408
+```
 
 Create a VM with the image you chose
 ================================
 (follow the VM create example script: https://docs.microsoft.com/en-us/azure/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-quick-create?toc=%2fcli%2fazure%2ftoc.json). 
 
 Create a resource group: 
+```
 $ az group create --name Gothenburg --location westeurope
 Location    Name
 ----------  ----------
 westeurope  Gothenburg
+```
 
 Create the VM: 
 $ az vm create --name Golden01 --resource-group Gothenburg --location westeurope --image OpenLogic:CentOS-HPC:6.5:6.5.20160408 --size Standard_H16r --storage-sku Standard_LRS --generate-ssh-keys
