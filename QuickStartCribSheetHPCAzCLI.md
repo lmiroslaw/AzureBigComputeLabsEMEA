@@ -26,7 +26,7 @@ Also this uses "availability sets", whereas these days we recommend to use "scal
 (availability sets & scale sets ensure InfiniBand fabric connectivity between the nodes via switch affinity). 
 https://docs.microsoft.com/en-us/azure/virtual-machines/linux/classic/rdma-cluster
 
-Install azure CLI 2.0
+### Install azure CLI 2.0
 ================
 Note, you can do this natively on linux/macox/windows, but you can also do this using the bash for windows: https://msdn.microsoft.com/en-us/commandline/wsl/about. 
 
@@ -35,7 +35,7 @@ https://docs.microsoft.com/en-us/cli/azure/install-azure-cli
 See example scripts here:
 https://docs.microsoft.com/en-us/azure/virtual-machines/linux/cli-samples?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
 
-Find the HPC Image closest to your need
+### Find the HPC Image closest to your need
 =================================
 The -HPC images have the Microsoft RDMA drivers & Intel MPI built in. If there is no HPC image, you will have to add this part manually.
 ```
@@ -44,7 +44,7 @@ CentOS-HPC  OpenLogic    6.5    OpenLogic:CentOS-HPC:6.5:6.5.20160408  6.5.20160
 CentOS-HPC  OpenLogic    7.1    OpenLogic:CentOS-HPC:7.1:7.1.20160408  7.1.20160408
 ```
 
-Create a VM with the image you chose
+### Create a VM with the image you chose
 ================================
 (follow the VM create example script: https://docs.microsoft.com/en-us/azure/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-quick-create?toc=%2fcli%2fazure%2ftoc.json). 
 
@@ -66,7 +66,7 @@ westeurope  00-0D-3A-28-40-E8  VM running    10.0.0.4            52.233.152.35  
 ```
 
 
-Customize the Image
+### Customize the Image
 =================
 Login to the running Golden01 image, customize it how you like it with appropriate rpms and NFS mounts to your software and models directory etc. 
 ```
@@ -81,7 +81,7 @@ Linux Golden01 2.6.32-431.29.2.el6.x86_64 #1 SMP Tue Sep 9 21:36:05 UTC 2014 x86
 …
 ```
 
-Generalize the Image & Prepare for Deployment
+### Generalize the Image & Prepare for Deployment
 ========================================
 Follow this guide: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/capture-image
 
@@ -107,7 +107,7 @@ Location    Name           ProvisioningState    ResourceGroup
 westeurope  GoldenImage01  Succeeded            Gothenburg
 ```
 
-Deploy the Scale-Set from the Image
+### Deploy the Scale-Set from the Image
 ==============================
 https://docs.microsoft.com/en-us/cli/azure/vmss
 ```
@@ -138,7 +138,7 @@ Enter passphrase for key '/home/mk/.ssh/id_rsa':
 [mk@swedept9l000000 ~]$
 ```
 
-Check RDMA Pre-Requisites 
+### Check RDMA Pre-Requisites 
 =======================
 For RDMA to work you *must* fulfill *all* of these criteria:
 	1. Use a -HPC image, or have the Microsoft RDMA drivers present. 
@@ -146,7 +146,7 @@ For RDMA to work you *must* fulfill *all* of these criteria:
 	3. The VM's must be deployed into the same availability set or, better, the same scale set. 
 	4. Passwordless SSH must be setup between the nodes under the account you are using. 
 
-Ensure Cross-Node Password Free SSH is configured
+#### Ensure Cross-Node Password-Free SSH is configured
 ===========================================
 Step 4 is critical, and the source of some practical difficulties. To make this happen use one of the following methods:
 	1. Install the keys manually into the relevant user home directory in your "Golden Image" before you deploy, and don't remove the user when you deprovision. 
@@ -155,7 +155,7 @@ Step 4 is critical, and the source of some practical difficulties. To make this 
 	4. Automate 2 or 3 in an ARM template. The ARM templates at the start of this HOWTO guide illustrate how to do this. 
 	
 
-Create env vars: 
+#### Create env vars: 
 ```
 [mk@swedept9l000000 ~]$ cat ~/.bashrc | grep MPI
 export INTELMPI_ROOT=/opt/intel/impi/5.1.3.181
