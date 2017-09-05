@@ -57,16 +57,19 @@ westeurope  Gothenburg
 ```
 
 Create the VM: 
+```
 $ az vm create --name Golden01 --resource-group Gothenburg --location westeurope --image OpenLogic:CentOS-HPC:6.5:6.5.20160408 --size Standard_H16r --storage-sku Standard_LRS --generate-ssh-keys
 
 Location    MacAddress         PowerState    PrivateIpAddress    PublicIpAddress    ResourceGroup
 ----------  -----------------  ------------  ------------------  -----------------  ---------------
 westeurope  00-0D-3A-28-40-E8  VM running    10.0.0.4            52.233.152.35      Gothenburg
+```
 
 
 Customize the Image
 =================
 Login to the running Golden01 image, customize it how you like it with appropriate rpms and NFS mounts to your software and models directory etc. 
+```
 $ ssh 52.233.152.35 -lmk
 The authenticity of host '52.233.152.35 (52.233.152.35)' can't be established.
 RSA key fingerprint is ab:36:c6:ec:fe:89:c5:f0:b4:be:67:75:5f:71:e3:55.
@@ -76,11 +79,13 @@ Enter passphrase for key '/home/mk/.ssh/id_rsa':
 [mk@Golden01 ~]$ uname -a
 Linux Golden01 2.6.32-431.29.2.el6.x86_64 #1 SMP Tue Sep 9 21:36:05 UTC 2014 x86_64 x86_64 x86_64 GNU/Linux
 …
+```
 
 Generalize the Image & Prepare for Deployment
 ========================================
 Follow this guide: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/capture-image
 
+```
 [mk@Golden01 ~]$ sudo waagent -deprovision+user -force
 WARNING! The waagent service will be stopped.
 WARNING! All SSH host key pairs will be deleted.
@@ -92,18 +97,20 @@ WARNING! mk account and entire home directory will be deleted.
 [mk@Golden01 ~]$ exit
 logout
 Shared connection to 52.233.152.35 closed.
-
+```
+```
 $ az vm deallocate --resource-group Gothenburg --name Golden01
 $ az vm generalize --resource-group Gothenburg --name Golden01
 $ az image create --resource-group Gothenburg --name GoldenImage01 --source Golden01
 Location    Name           ProvisioningState    ResourceGroup
 ----------  -------------  -------------------  ---------------
 westeurope  GoldenImage01  Succeeded            Gothenburg
+```
 
 Deploy the Scale-Set from the Image
 ==============================
 https://docs.microsoft.com/en-us/cli/azure/vmss
-
+```
 $ az vmss create --name Sweden --resource-group Gothenburg --image GoldenImage01 --vm-sku Standard_H16r --storage-sku Standard_LRS --instance-count 4 --generate-ssh-keys
 $ az vmss list-instances --resource-group Gothenburg --name Sweden
   InstanceId  LatestModelApplied    Location    Name      ProvisioningState    ResourceGroup    VmId
@@ -120,7 +127,8 @@ Result
 52.166.127.169:50001
 52.166.127.169:50002
 52.166.127.169:50003
-
+```
+```
 $ ssh 52.166.127.169 -lmk -p 50000
 The authenticity of host '[52.166.127.169]:50000 ([52.166.127.169]:50000)' can't be established.
 RSA key fingerprint is d4:db:78:9f:6c:f4:6a:1c:57:c7:5d:c7:eb:4c:18:a7.
@@ -128,6 +136,7 @@ Are you sure you want to continue connecting (yes/no)? yes
 Warning: Permanently added '[52.166.127.169]:50000' (RSA) to the list of known hosts.
 Enter passphrase for key '/home/mk/.ssh/id_rsa':
 [mk@swedept9l000000 ~]$
+```
 
 Check RDMA Pre-Requisites 
 =======================
@@ -147,6 +156,7 @@ Step 4 is critical, and the source of some practical difficulties. To make this 
 	
 
 Create env vars: 
+```
 [mk@swedept9l000000 ~]$ cat ~/.bashrc | grep MPI
 export INTELMPI_ROOT=/opt/intel/impi/5.1.3.181
 export I_MPI_FABRICS=shm:dapl
@@ -157,7 +167,7 @@ mk@swedept9l000000 ~]$ cat pingpong.sh
 #!/bin/bash
 source /opt/intel/impi/5.1.3.181/bin64/mpivars.sh
 mpirun -env I_MPI_FABRICS=dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 IMB-MPI1 pingpong
-
+```
 If your pingpong test is failing, return to the section "Check RDMA Pre-Requisites" and check again. 
 
 Once you are able to run the infiniband tests successfully across all nodes, you are ready to run your StarCCM, Fluent or other MPI jobs on the cluster. 
