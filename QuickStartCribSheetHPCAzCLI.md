@@ -27,7 +27,7 @@ Also this uses "availability sets", whereas these days we recommend to use "scal
 https://docs.microsoft.com/en-us/azure/virtual-machines/linux/classic/rdma-cluster
 
 ### Install azure CLI 2.0
-================
+
 Note, you can do this natively on linux/macox/windows, but you can also do this using the bash for windows: https://msdn.microsoft.com/en-us/commandline/wsl/about. 
 
 Azure CLI 2.0 Installation instructions: 
@@ -36,7 +36,7 @@ See example scripts here:
 https://docs.microsoft.com/en-us/azure/virtual-machines/linux/cli-samples?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
 
 ### Find the HPC Image closest to your need
-=================================
+
 The -HPC images have the Microsoft RDMA drivers & Intel MPI built in. If there is no HPC image, you will have to add this part manually.
 ```
 $ az vm image list --publisher OpenLogic --all | grep HPC
@@ -45,7 +45,7 @@ CentOS-HPC  OpenLogic    7.1    OpenLogic:CentOS-HPC:7.1:7.1.20160408  7.1.20160
 ```
 
 ### Create a VM with the image you chose
-================================
+
 (follow the VM create example script: https://docs.microsoft.com/en-us/azure/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-quick-create?toc=%2fcli%2fazure%2ftoc.json). 
 
 Create a resource group: 
@@ -67,7 +67,7 @@ westeurope  00-0D-3A-28-40-E8  VM running    10.0.0.4            52.233.152.35  
 
 
 ### Customize the Image
-=================
+
 Login to the running Golden01 image, customize it how you like it with appropriate rpms and NFS mounts to your software and models directory etc. 
 ```
 $ ssh 52.233.152.35 -lmk
@@ -82,7 +82,7 @@ Linux Golden01 2.6.32-431.29.2.el6.x86_64 #1 SMP Tue Sep 9 21:36:05 UTC 2014 x86
 ```
 
 ### Generalize the Image & Prepare for Deployment
-========================================
+
 Follow this guide: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/capture-image
 
 ```
@@ -108,7 +108,7 @@ westeurope  GoldenImage01  Succeeded            Gothenburg
 ```
 
 ### Deploy the Scale-Set from the Image
-==============================
+
 https://docs.microsoft.com/en-us/cli/azure/vmss
 ```
 $ az vmss create --name Sweden --resource-group Gothenburg --image GoldenImage01 --vm-sku Standard_H16r --storage-sku Standard_LRS --instance-count 4 --generate-ssh-keys
@@ -139,7 +139,7 @@ Enter passphrase for key '/home/mk/.ssh/id_rsa':
 ```
 
 ### Check RDMA Pre-Requisites 
-=======================
+
 For RDMA to work you *must* fulfill *all* of these criteria:
 	1. Use a -HPC image, or have the Microsoft RDMA drivers present. 
 	2. The VM's must be deployed to a physical SKU that has RDMA capability (H16r, H16mr, A8, A9, or NC24r). 
@@ -147,7 +147,7 @@ For RDMA to work you *must* fulfill *all* of these criteria:
 	4. Passwordless SSH must be setup between the nodes under the account you are using. 
 
 #### Ensure Cross-Node Password-Free SSH is configured
-===========================================
+
 Step 4 is critical, and the source of some practical difficulties. To make this happen use one of the following methods:
 	1. Install the keys manually into the relevant user home directory in your "Golden Image" before you deploy, and don't remove the user when you deprovision. 
 	2. Create an NFS share from the head node (or elsewhere) and mount the home directory into each image at boot time. 
