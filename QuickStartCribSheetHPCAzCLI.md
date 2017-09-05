@@ -1,11 +1,12 @@
 # QUICKSTART Crib Sheet: Deploying an HPC Cluster in Azure 
 
 There are three primary methods to deploy HPC clusters in Azure. 
-	1) Via portal.azure.com graphical interface, building the cluster manually. 
-	2) ARM (Azure Resource Manager) templates which define the cluster in JSON code. 
-	3) Azure CLI commands and scripts. 
 
-Deploy via ARM templates
+1) Via portal.azure.com graphical interface, building the cluster manually. 
+2) ARM (Azure Resource Manager) templates which define the cluster in JSON code. 
+3) Azure CLI commands and scripts. 
+
+## Deploy via ARM templates
 
 The advantage of ARM templates is that they contain all the code to deploy the Azure infrastructure, and also post-installation scripts to customize the image dynamically. The templates can be customized to let the user change parameters (such as number or type of compute nodes) at the time of deployment. 
 Example ARM templates for building clusters to run StarCCM & Ansys fluent jobs: 
@@ -14,7 +15,7 @@ https://github.com/tanewill/5clickTemplates/tree/master/RawANSYSCluster
 
 If you want to use ARM templates it suggested that you use a github account, and clone the template you like into your own github repository, where you can customize it according to your needs and preferences. 
 
-Deploy by Azure CLI using a customized marketplace image
+## Deploy by Azure CLI using a customized marketplace image
 
 Another method available, and often preferred by Linux administrators is to deploy from the azure command line interface (Azure CLI 2.0). This allows you to do all the same things as an ARM template using Linux CLI or scripts. 
 
