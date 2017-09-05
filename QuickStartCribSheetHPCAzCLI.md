@@ -43,7 +43,7 @@ $ az vm image list --publisher OpenLogic --all | grep HPC
 CentOS-HPC  OpenLogic    6.5    OpenLogic:CentOS-HPC:6.5:6.5.20160408  6.5.20160408
 CentOS-HPC  OpenLogic    7.1    OpenLogic:CentOS-HPC:7.1:7.1.20160408  7.1.20160408
 ```
-# Decide which Hardware SKU you want to use
+### Decide which Hardware SKU you want to use
 
 You can read the details about the different VM types in the Azure documentation with details onthe underlying <a href="https://docs.microsoft.com/en-us/azure/virtual-machines/linux/sizes">hardware types</a> and <a href="https://azure.microsoft.com/en-us/pricing/details/virtual-machines/linux/">VM pricing per location</a>. 
 
