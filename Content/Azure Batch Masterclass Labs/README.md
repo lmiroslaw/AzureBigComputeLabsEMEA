@@ -39,7 +39,7 @@ alternatively you can create a pool with low priority VMs as follows:
 
 ## 6. Create a job and tasks
 
-You can create a job and the tasks by using the script similar to the script [run_task.sh](run_task.sh).
+You can create a job and the tasks by using the script similar to the script [run_job.sh](run_job.sh).
 
 
 
