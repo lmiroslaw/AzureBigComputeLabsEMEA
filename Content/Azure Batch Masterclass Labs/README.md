@@ -1,4 +1,3 @@
-
 # Azure Batch Master Class Lab #
 
 This tutorial shows how to run Ilastik on Azure Batch. In order to start you need:
@@ -12,7 +11,7 @@ Files should be uploaded to Azure Storage in advance using Azure CLI. We also as
 
 ## 1. Create a deployment script  
 This script contains the installation file as well as the Ilastik workflow that analyzes the images.
-See deploy_script.sh
+See [deploy_script.sh](deploy_script.sh).
 
 ## 2. Create a pool configuration 
 
@@ -26,7 +25,7 @@ Create a pool called ilastik  and define the size of the VMs in the pool (here S
 
 ## 4. Configure the pool
 
-Configure the pool by assigning the JSON configuration file to the pool.
+Configure the pool by assigning the JSON configuration file to the pool. See the example [pool-shipyard.json](pool-shipyard.json).
 
 ``` az batch pool set --pool-id ilastik --json-file pool-shipyard.json --account-endpoint https://ilastikb.westeurope.batch.azure.com --account-name ilastikb ```
 
@@ -36,11 +35,11 @@ Configure the pool by assigning the JSON configuration file to the pool.
 
 alternatively you can create a pool with low priority VMs as follows:
 
-```az batch pool resize --pool-id ilastik0 --target-dedicated 0 --target-low-priority-nodes 2  --account-endpoint https://ilastikb.westeurope.batch.azure.com --account-name ilastikb```
+```az batch pool resize --pool-id ilastik --target-dedicated 0 --target-low-priority-nodes 2  --account-endpoint https://ilastikb.westeurope.batch.azure.com --account-name ilastikb```
 
-## Create a job and tasks
+## 6. Create a job and tasks
 
-You can create a job and the tasks by using the script similar to this one.
+You can create a job and the tasks by using the script similar to the script [run_task.sh](run_task.sh).
 
 
 
