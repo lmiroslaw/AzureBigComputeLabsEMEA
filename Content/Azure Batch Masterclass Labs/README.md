@@ -11,7 +11,7 @@ Files should be uploaded to Azure Storage in advance using Azure CLI. We also as
 
 ## 1. Create a deployment script  
 This script contains the installation file as well as the Ilastik workflow that analyzes the images.
-See deploy_script.sh
+See [deploy_script.sh](deploy_script.sh).
 
 ## 2. Create a pool configuration 
 
@@ -25,7 +25,7 @@ Create a pool called ilastik  and define the size of the VMs in the pool (here S
 
 ## 4. Configure the pool
 
-Configure the pool by assigning the JSON configuration file to the pool. See the example ![pool-shipyard.json](pool-shipyard.json).
+Configure the pool by assigning the JSON configuration file to the pool. See the example [pool-shipyard.json](pool-shipyard.json).
 
 ``` az batch pool set --pool-id ilastik --json-file pool-shipyard.json --account-endpoint https://ilastikb.westeurope.batch.azure.com --account-name ilastikb ```
 
