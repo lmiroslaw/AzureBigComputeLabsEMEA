@@ -1,4 +1,3 @@
-
 # Azure Batch Master Class Lab #
 
 This tutorial shows how to run Ilastik on Azure Batch. In order to start you need:
@@ -26,7 +25,7 @@ Create a pool called ilastik  and define the size of the VMs in the pool (here S
 
 ## 4. Configure the pool
 
-Configure the pool by assigning the JSON configuration file to the pool.
+Configure the pool by assigning the JSON configuration file to the pool. See the example ![pool-shipyard.json](pool-shipyard.json).
 
 ``` az batch pool set --pool-id ilastik --json-file pool-shipyard.json --account-endpoint https://ilastikb.westeurope.batch.azure.com --account-name ilastikb ```
 
