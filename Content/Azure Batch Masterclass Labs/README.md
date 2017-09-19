@@ -35,11 +35,11 @@ Configure the pool by assigning the JSON configuration file to the pool. See the
 
 alternatively you can create a pool with low priority VMs as follows:
 
-```az batch pool resize --pool-id ilastik0 --target-dedicated 0 --target-low-priority-nodes 2  --account-endpoint https://ilastikb.westeurope.batch.azure.com --account-name ilastikb```
+```az batch pool resize --pool-id ilastik --target-dedicated 0 --target-low-priority-nodes 2  --account-endpoint https://ilastikb.westeurope.batch.azure.com --account-name ilastikb```
 
-## Create a job and tasks
+## 6. Create a job and tasks
 
-You can create a job and the tasks by using the script similar to this one.
+You can create a job and the tasks by using the script similar to the script [run_task.sh](run_task.sh).
 
 
 
